@@ -22,7 +22,17 @@ def bubble_sort(arr):
         return bubble_sort(arr)
 
 
-# STRETCH: implement the Count Sort function below
 def count_sort(arr, maximum=-1):
-
+    if arr == []:
+        return arr
+    counts = {}
+    for i in range(min(arr), max(arr) + 1):
+        counts[i] = 0
+    for elem in arr:
+        counts[elem] += 1
+    acc = 0
+    for key, value in counts.items():
+        for i in range(acc, acc + value):
+            arr[i] = key
+        acc += value
     return arr
