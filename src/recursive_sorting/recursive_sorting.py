@@ -1,22 +1,20 @@
 def merge(arrA, arrB):
     merged_arr = []
-    while True:
-        if arrA == [] or arrB == []:
-            merged_arr.extend(arrA)
-            merged_arr.extend(arrB)
-            return merged_arr
-        elif arrA[0] < arrB[0]:
+    while len(arrA) > 0 and len(arrB) > 0:
+        if arrA[0] < arrB[0]:
             merged_arr.append(arrA.pop(0))
         else:
             merged_arr.append(arrB.pop(0))
+    merged_arr.extend(arrA)
+    merged_arr.extend(arrB)
+    return merged_arr
 
 
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr
     else:
-        l = len(arr)
-        n = l // 2
+        n = len(arr) // 2
         return merge(merge_sort(arr[0:n]), merge_sort(arr[n:]))
 
 # STRETCH: implement an in-place merge sort algorithm
