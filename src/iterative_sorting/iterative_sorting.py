@@ -1,6 +1,3 @@
-from functools import reduce
-
-
 def selection_sort(arr):
     for i in range(0, len(arr) - 1):
         smallest_index = i
@@ -12,13 +9,13 @@ def selection_sort(arr):
 
 
 def bubble_sort(arr):
-    swaps = True
-    while swaps:
-        swaps = False
+    swap = True
+    while swap:
+        swap = False
         for i in range(0, len(arr) - 1):
             if arr[i] > arr[i + 1]:
                 arr[i], arr[i + 1] = arr[i + 1], arr[i]
-                swaps = True
+                swap = True
     return arr
 
 
